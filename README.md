@@ -24,17 +24,67 @@ In timing diagram Q0 is changing as soon as the negative edge of clock pulse is 
 
 **Procedure**
 
-/* write all the steps invloved */
+Step1:Define clk (clock), reset (reset signal), and q (4-bit output) as inputs and outputs.
+
+Step2:Declare a 4-bit register count to store the counter value.
+
+Step3:Assign the value of count to the output q.
+
+Step4:Use an always block triggered on the rising edge of clk or reset.
+
+Step5:Check if reset is active, and if so, set count to 0000.
+
+Step6:If reset is inactive, increment count by 1.
+
+Step7:Allow the 4-bit register to roll over from 1111 to 0000 naturally.
 
 **PROGRAM**
 
-/* Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
+Program for 4 Bit Ripple Counter and verify its truth table in quartus using Verilog programming.
 
- Developed by: RegisterNumber:
-*/
+ Developed by:HARINI S
+ 
+ RegisterNumber:24900110
+
+module ripple(
+
+ input clk,     
+    
+ input reset, 
+    
+ output [3:0] q     
+   
+);
+    
+ reg [3:0] count;
+
+  assign q = count;
+
+  if (reset)
+    
+ count <= 4'b0000; 
+           
+ else
+     
+ count <= count + 1;
+            
+ end
+
+endmodule
+
 
 **RTL LOGIC FOR 4 Bit Ripple Counter**
 
+![Screenshot (50)](https://github.com/user-attachments/assets/b8543d40-78c3-4b5c-b39d-085f446f4a0b)
+
+
 **TIMING DIGRAMS FOR 4 Bit Ripple Counter**
 
+![Screenshot (49)](https://github.com/user-attachments/assets/7ce6406a-8c01-4a56-98bf-f253bb2788b9)
+
+
 **RESULTS**
+
+  4 Bit Ripple Counter using verilog and validating their functionality using their functional tables is implemented
+
+
